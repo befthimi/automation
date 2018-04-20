@@ -1,0 +1,11 @@
+---
+- name: Simple ping & print hostname
+  hosts: 2940-sw01
+  tasks:
+    - ping:
+    - debug:
+        msg: "{{ ansible_host }}"
+    - debug:
+        msg: "{{ ntp1 }}"
+    - debug:
+        msg: "{{ vtp_domain }}"

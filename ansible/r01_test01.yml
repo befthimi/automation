@@ -1,0 +1,30 @@
+---
+- name: R01 example
+  hosts: r01
+  vars:
+    creds:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+  tasks:
+    - ping:
+    - ios_facts:
+        provider: "{{ creds }}"
+      tags: facts_only
+
+    - ios_command:
+        provider: "{{ creds }}"
+        commands: show version
+        wait_for: result[0] contains IOS
+      register: output
+
+    - debug:
+        msg: "{{ output['stdout_lines'] }}"
+
+    - ios_command:
+        provider: "{{ creds }}"
+        commands: show ip int brief
+      register: output
+
+    - debug:
+        msg: "{{ output.stdout_lines[0][1] }}"

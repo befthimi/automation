@@ -1,0 +1,11 @@
+---
+- name: Print Out Variables
+  hosts: local
+  tasks:
+    - ping:
+    - debug:
+        msg: "{{ ansible_all_ipv4_addresses }}"
+    - debug:
+        msg: "{{ ansible_all_ipv6_addresses }}"
+    - debug:
+        msg: "{{ ansible_architecture }}"

@@ -1,0 +1,9 @@
+---
+- name: Simple ping & print hostname
+  hosts: prod
+  tasks:
+    - ping:
+    - debug:
+        msg: "{{ ansible_host }}"
+    - debug:
+        msg: "{{ ntp1 }}"

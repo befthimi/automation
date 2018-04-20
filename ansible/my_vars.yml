@@ -1,0 +1,4 @@
+---
+vtp_domain: efthimiou
+dns1: 192.168.1.52
+dns2: 192.168.1.254

@@ -1,0 +1,15 @@
+---
+- name: Print Out Variables
+  hosts: 2940-sw01
+  vars:
+    dns3: 8.8.8.8
+  vars_files:
+    - my_vars.yml
+  tasks:
+    - ping:
+    - debug:
+        msg: "{{ dns1 }}"
+    - debug:
+        msg: "{{ dns2 }}"
+    - debug:
+        msg: "{{ dns3 }}"
